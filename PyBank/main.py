@@ -1,8 +1,10 @@
 #Modules
 import csv
+import os
 
 #Reading CSV Module
-with open('Resources/budget_data.csv', 'r') as csvfile:
+budget_data = os.path.join('Resources/budget_data.csv')
+with open(budget_data, 'r') as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
     
     #Read the hedaer row first
