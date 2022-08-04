@@ -1,8 +1,10 @@
 #Modules
 import csv
+import os
 
 #Reading CSV Module
-with open('Resources/election_data.csv', 'r') as csvfile:
+election_data = os.path.join('Resources/election_data.csv')
+with open(election_data, 'r') as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
 
     #Read the hedaer row first
@@ -98,3 +100,15 @@ with open('Resources/election_data.csv', 'r') as csvfile:
     output_file.write("Winner: "+str(winnername)+"\n")
     output_file.write("-------------------------\n")
     output_file.close()
+
+    #PRINT TO THE TERMINAL
+    print("Election Results")
+    print("-------------------------")
+    print("Total Votes: "+ str(total_votes))
+    print("-------------------------")
+    print(str(v_candidates[0])+": "+ str(perc_votes[0])+"% ("+str(ind_votes[0])+")")
+    print(str(v_candidates[1])+": "+ str(perc_votes[1])+"% ("+str(ind_votes[1])+")")
+    print(str(v_candidates[2])+": "+ str(perc_votes[2])+"% ("+str(ind_votes[2])+")")
+    print("-------------------------")
+    print("Winner: "+str(winnername))
+    print("-------------------------")
